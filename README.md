@@ -40,15 +40,20 @@ module.exports = {
 }
 ```
 
-## Internationalization
+## Installations
+
+### Internationalization
 
 [Guide](https://react.i18next.com/guides/quick-start)
 
 * `npm install i18next react-i18next i18next-http-backend i18next-browser-languagedetector`
 * Created `src/lib/i18n.ts`
 * Imported `i18n.ts` in `main.tsx`
+* Configured `Suspense` in `main.tsx`
 
-## Install LDRS
+> `main.tsx` is equivalent to `index.tsx`
+
+### Loaders with UI Ball LDRS
 
 [Guide](https://uiball.com/ldrs/)
 
