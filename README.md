@@ -39,3 +39,35 @@ module.exports = {
   })],
 }
 ```
+
+## Internationalization
+
+[Guide](https://react.i18next.com/guides/quick-start)
+
+* `npm install i18next react-i18next i18next-http-backend i18next-browser-languagedetector`
+* Created `src/lib/i18n.ts`
+* Imported `i18n.ts` in `main.tsx`
+
+## Install LDRS
+
+[Guide](https://uiball.com/ldrs/)
+
+* `npm install ldrs`
+* Add to `src/vite-env.d.ts`: `/// <reference types="ldrs" />`
+* Now you can use in the component:
+
+```javascript
+import 'ldrs/quantum'
+
+const Loader = () => {
+  return (
+    // Certically centered. Negative margin is to subtract the space taken by the header and footer. 
+    <div className="flex items-center justify-center min-h-screen -mt-36">
+      <l-waveform size="35" stroke="3.5" speed="1" color="black"></l-waveform>
+    </div>
+  );
+}
+
+export default Loader;
+```
+
