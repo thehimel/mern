@@ -50,6 +50,7 @@ module.exports = {
 * Created `src/lib/i18n.ts`
 * Imported `i18n.ts` in `main.tsx`
 * Configured `Suspense` in `main.tsx`
+* Created `translation.json` files in `/public/static/locales/{languageCode}/`
 
 > `main.tsx` is equivalent to `index.tsx`
 
