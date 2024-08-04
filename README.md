@@ -56,10 +56,28 @@ module.exports = {
 
 ### Loaders with UI Ball LDRS
 
-[Guide](https://uiball.com/ldrs/)
-
 * `npm install ldrs`
 * Add to `src/vite-env.d.ts`: `/// <reference types="ldrs" />`
+* You must register the type of loader you are using in App.tsx. This can be added anywhere, but we are registering at
+the app level as we want to register this once globally.
+
+```javascript
+import {quantum} from "ldrs";
+import {useEffect} from "react";
+
+const App = () => {
+  useEffect(() => {
+    quantum.register(); // Register quantum once when App mounts
+  }, []);
+
+  return (
+    <></>
+  );
+};
+
+export default App;
+```
+
 * Now you can use in the component:
 
 ```javascript
@@ -76,4 +94,5 @@ const Loader = () => {
 
 export default Loader;
 ```
+
 
