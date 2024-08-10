@@ -188,5 +188,11 @@ export default defineConfig({
 * If you are in local environment, the `.env` file must be at the same level of `vite.config.ts`.
 * Installing the library `dotenv` is not required.
 
+### React Hook Form with Zod
+
+* [React Hook Form (+ Zod) - Complete Tutorial](https://youtu.be/u6PQ5xZAv7Q)
+* [react-hook-form-with-zod-and-server-side](https://github.com/ByteGrad/react-hook-form-with-zod-and-server-side)
+
+
 
 
