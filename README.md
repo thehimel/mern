@@ -52,6 +52,18 @@ module.exports = {
   * base/Slice.ts
 * Then configure your provider.tsx
 * Make sure the provider is properly used in main.tsx
+* You may encounter errors related to types of "redux-persist/lib/storage". Configure "src/redux-persist.d.ts" to resolve that.
+
+```javascript
+// redux-persist.d.ts
+
+declare module "redux-persist/lib/storage" {
+  import { WebStorage } from "redux-persist";
+
+  const storage: WebStorage;
+  export default storage;
+}
+```
 
 ```javascript
 // provider.tsx
