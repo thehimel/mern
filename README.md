@@ -5,7 +5,7 @@
 * [How to set up TypeScript with Node.js and Express (2023)](https://dev.to/cristain/how-to-set-up-typescript-with-nodejs-and-express-2023-gf)
 * [Serve a React app from an Express server | React frontend and Express API setup in 1 project!](https://youtu.be/4pUBO31nkpk)
 * [Translations - Localise React Applications Using I18Next](https://youtu.be/txHU6lrsa3o)
-  * [Step by step guide](https://react.i18next.com/latest/using-with-hooks)
+  * [Step-by-step guide](https://react.i18next.com/latest/using-with-hooks)
   * [React Localization - Internationalize with i18next](https://locize.com/blog/react-i18next/)
   * ChatGPT Prompt: How to implement automatic translations in react application with trypesript project using i18next react-i18next i18next-http-backend i18next-browser-languagedetector by setting up translations files in locales directory?
 
@@ -54,7 +54,7 @@ module.exports = {
 * Make sure the provider is properly used in main.tsx
 * You may encounter errors related to types of "redux-persist/lib/storage". Configure "src/redux-persist.d.ts" to resolve that.
 
-```javascript
+```typescript
 // redux-persist.d.ts
 
 declare module "redux-persist/lib/storage" {
@@ -211,9 +211,15 @@ const Loader = () => {
 export default Loader;
 ```
 
+### NextAuth
+
+* [NextAuth](next-auth/README.md)
+
 ### Access Environment Variables
 
 * `npm install vite-plugin-environment`
+  * https://next-auth.js.org/getting-started/example
+* Route Handlers (`app/`)
 
 ```typescript
 // vite.config.ts
