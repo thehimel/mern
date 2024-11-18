@@ -1,5 +1,12 @@
 # NextAuth
 
+## Guidelines
+
+* [Mastering Next.js 13 with TypeScript](https://codewithmosh.com/p/mastering-next-js-13-with-typescript)
+  * Authentication with Next Auth
+
+## Configuration
+
 * Install: `npm install next-auth`
 * Generate a 32-byte random value encoded in Base64 format: `openssl rand -base64 32`
 * Configure environmental variables:
