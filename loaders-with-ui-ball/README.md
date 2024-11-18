@@ -3,45 +3,52 @@
 ## Next.js with Next UI
 
 * Install: `npm install ldrs`
-* Register quantum when the layout mounts only once in `src/layouts/Default.tsx`
+* Register quantum when the layout mounts only once in `app/providers.tsx`
 
 ```javascript
-import { Link } from "@nextui-org/link";
-import React, { useEffect } from "react";
-import { Toaster } from "sonner";
+"use client";
+
 import { quantum } from "ldrs";
+import { useEffect } from "react";
+import * as React from "react";
+import { NextUIProvider } from "@nextui-org/system";
+import { useRouter } from "next/navigation";
+import { ThemeProvider as NextThemesProvider } from "next-themes";
+import { ThemeProviderProps } from "next-themes/dist/types";
+import { SessionProvider } from "next-auth/react";
 
-import { HeartFilledIcon } from "@/components/Icons.tsx";
-import { Navbar } from "@/components/Navbar.tsx";
+export function Providers({ children, themeProps }: ProvidersProps) {
+  const router = useRouter();
 
-export default function DefaultLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  // Register quantum when the layout mounts
+  // Register quantum on the client-side when the layout mounts
   useEffect(() => {
-    quantum.register(); // Register quantum only once
+    if (typeof window !== "undefined") {
+      quantum.register(); // Register quantum only once on the client side
+    }
   }, []);
 
   return (
-    <div className="relative flex flex-col h-screen">
-      <Navbar />
-      <Toaster expand={true} position="top-center" />
-      <main className="container mx-auto px-6 flex-grow ">{children}</main>
-    </div>
+    <SessionProvider>
+      <NextUIProvider navigate={router.push}>
+        <NextThemesProvider {...themeProps}>{children}</NextThemesProvider>
+      </NextUIProvider>
+    </SessionProvider>
   );
 }
 ```
 
-* `src/components/Loader.tsx`
+> `useEffect()` can only be used in client side. Therefore, we can't declare it in `app/layout.tsx`
+
+* `src/components/loader.tsx`
 
 ```javascript
+"use client";
+
 import "ldrs/quantum";
-import { useAppSelector } from "@/store/hooks.ts";
+import { useTheme } from "next-themes";
 
 const Loader = () => {
-  const theme = useAppSelector((state) => state.base.theme);
+  const { theme } = useTheme();
   const color = theme === "light" ? "black" : "white";
 
   return (
