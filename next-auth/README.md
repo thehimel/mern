@@ -17,14 +17,12 @@ NEXTAUTH_SECRET="<32-BYTE RANDOM VALUE ENCODED IN BASE64 FORMAT>"
 GOOGLE_CLIENT_ID=""
 GOOGLE_CLIENT_SECRET=""
 ```
-
-* Create `app/api/auth/[...nextauth]/route.ts`
+* Create `app/api/auth/[...nextauth]/authOptions.ts`
 
 ```typescript
-import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 
-export const authOptions = {
+const authOptions = {
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID!,
@@ -32,6 +30,16 @@ export const authOptions = {
     }),
   ],
 };
+
+export default authOptions;
+```
+
+* Create `app/api/auth/[...nextauth]/route.ts`
+
+```typescript
+import NextAuth from "next-auth";
+
+import authOptions from "@/app/api/auth/[...nextauth]/authOptions";
 
 const handler = NextAuth(authOptions);
 
