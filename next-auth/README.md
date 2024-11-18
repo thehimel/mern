@@ -17,18 +17,40 @@ NEXTAUTH_SECRET="<32-BYTE RANDOM VALUE ENCODED IN BASE64 FORMAT>"
 GOOGLE_CLIENT_ID=""
 GOOGLE_CLIENT_SECRET=""
 ```
+* Create `middleware.ts`
+
+```typescript
+export { default } from "next-auth/middleware";
+
+export const config = {
+  // *: zero or more parameters
+  // +: one or more parameters
+  // ?: zero or one parameters
+  matcher: [
+    "/profile/:path*", // Matches all paths under /profile/
+  ],
+};
+```
+
+> The URLs defined in the matcher requires authentication.
+> URLs define in the matcher must start with a `/`.
+
 * Create `app/api/auth/[...nextauth]/authOptions.ts`
 
 ```typescript
+import { NextAuthOptions } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 
-const authOptions = {
+const authOptions: NextAuthOptions = {
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID!,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
     }),
   ],
+  session: {
+    strategy: "jwt",
+  },
 };
 
 export default authOptions;
