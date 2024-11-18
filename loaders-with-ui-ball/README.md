@@ -8,7 +8,6 @@
 ```javascript
 "use client";
 
-import { quantum } from "ldrs";
 import { useEffect } from "react";
 import * as React from "react";
 import { NextUIProvider } from "@nextui-org/system";
@@ -20,10 +19,13 @@ import { SessionProvider } from "next-auth/react";
 export function Providers({ children, themeProps }: ProvidersProps) {
   const router = useRouter();
 
-  // Register quantum on the client-side when the layout mounts
+  // Register quantum on the client-side when the layout mounts only once
   useEffect(() => {
     if (typeof window !== "undefined") {
-      quantum.register(); // Register quantum only once on the client side
+      import("ldrs").then(({ quantum, tailChase }) => {
+        quantum.register();
+        tailChase.register();
+      });
     }
   }, []);
 
