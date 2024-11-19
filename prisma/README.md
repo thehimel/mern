@@ -1,5 +1,7 @@
 # Prisma
 
+> Configure Prisma before configuring Auth.js
+
 ## Configure Postgres
 
 * Run Postgres server with Docker: [README.md](../postgres-server/README.md)
@@ -10,8 +12,9 @@
 * Install: `npm install prisma @prisma/client @next-auth/prisma-adapter`
 * Overview example commands: `npx prisma`
 * Initialise Prisma: `npx prisma init`
-* It generates: `prisma/schema.prisma`
-* Add models in [schema.prisma](src/prisma/schema.prisma). You can take this mode: [NextAuth Prisma Model](https://authjs.dev/getting-started/adapters/prisma#schema)
+* It generates: `prisma/schema.prisma` like [schema.prisma](src/prisma/schema.prisma)
+* Add models in [schema.prisma](src/prisma/schema.prisma).
+  * Reference: https://authjs.dev/getting-started/adapters/prisma#schema
+* Create `client.ts` like [client.ts](src/prisma/client.ts)
+  * Reference: https://authjs.dev/getting-started/adapters/prisma#configuration
 * Apply migrations: `npx prisma migrate dev`
-* Create [client.ts](src/prisma/client.ts)
-  * [Reference](https://www.prisma.io/docs/orm/more/help-and-troubleshooting/help-articles/nextjs-prisma-client-dev-practices#solution)
