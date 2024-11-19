@@ -5,6 +5,10 @@
 * [Mastering Next.js 13 with TypeScript](https://codewithmosh.com/p/mastering-next-js-13-with-typescript)
   * Authentication with Next Auth
 
+## Prerequisite
+
+* [Install and configure Prisma and Prisma Adapter](../prisma/README.md)
+
 ## Configuration
 
 * Install: `npm install next-auth`
@@ -38,8 +42,11 @@ export const config = {
 * Create `app/api/auth/[...nextauth]/authOptions.ts`
 
 ```typescript
+import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import { NextAuthOptions } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
+
+import prisma from "@/prisma/client";
 
 const authOptions: NextAuthOptions = {
   providers: [
@@ -51,6 +58,7 @@ const authOptions: NextAuthOptions = {
   session: {
     strategy: "jwt",
   },
+  adapter: PrismaAdapter(prisma),
 };
 
 export default authOptions;
