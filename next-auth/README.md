@@ -7,7 +7,7 @@
 
 ## Prerequisite
 
-* [Install and configure Prisma and Prisma Adapter](../prisma/README.md)
+* [Install and configure Prisma](../prisma/README.md)
 
 ## Configuration
 
@@ -27,6 +27,9 @@ GOOGLE_CLIENT_SECRET=""
 > URLs define in the matcher must start with a `/`.
 
 * Create `app/api/auth/[...nextauth]/authOptions.ts` like [authOptions.ts](src/app/api/auth/%5B...nextauth%5D/authOptions.ts)
+* Configure Prisma adapter following this [reference](https://next-auth.js.org/v3/adapters/prisma#setup)
+* Prisma reference: https://authjs.dev/getting-started/adapters/prisma
+* Postgres schema: https://authjs.dev/getting-started/adapters/prisma#schema
 
 * Create `app/api/auth/[...nextauth]/route.ts` like [route.ts](src/app/api/auth/%5B...nextauth%5D/route.ts)
 
