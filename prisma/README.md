@@ -7,7 +7,7 @@
 
 ## Configure Prisma
 
-* Install: `npm i prisma`
+* Install: `npm install prisma @prisma/client @next-auth/prisma-adapter`
 * Overview example commands: `npx prisma`
 * Initialise Prisma: `npx prisma init`
 * It generates: `prisma/schema.prisma`
