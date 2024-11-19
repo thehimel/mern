@@ -21,60 +21,14 @@ NEXTAUTH_SECRET="<32-BYTE RANDOM VALUE ENCODED IN BASE64 FORMAT>"
 GOOGLE_CLIENT_ID=""
 GOOGLE_CLIENT_SECRET=""
 ```
-* Create `middleware.ts`
-
-```typescript
-export { default } from "next-auth/middleware";
-
-export const config = {
-  // *: zero or more parameters
-  // +: one or more parameters
-  // ?: zero or one parameters
-  matcher: [
-    "/profile/:path*", // Matches all paths under /profile/
-  ],
-};
-```
+* Create [middleware.ts](middleware.ts)
 
 > The URLs defined in the matcher requires authentication.
 > URLs define in the matcher must start with a `/`.
 
-* Create `app/api/auth/[...nextauth]/authOptions.ts`
+* Create `app/api/auth/[...nextauth]/authOptions.ts` like [authOptions.ts](auth/%5B...nextauth%5D/authOptions.ts)
 
-```typescript
-import { PrismaAdapter } from "@next-auth/prisma-adapter";
-import { NextAuthOptions } from "next-auth";
-import GoogleProvider from "next-auth/providers/google";
-
-import prisma from "@/prisma/client";
-
-const authOptions: NextAuthOptions = {
-  providers: [
-    GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID!,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
-    }),
-  ],
-  session: {
-    strategy: "jwt",
-  },
-  adapter: PrismaAdapter(prisma),
-};
-
-export default authOptions;
-```
-
-* Create `app/api/auth/[...nextauth]/route.ts`
-
-```typescript
-import NextAuth from "next-auth";
-
-import authOptions from "@/app/api/auth/[...nextauth]/authOptions";
-
-const handler = NextAuth(authOptions);
-
-export { handler as GET, handler as POST };
-```
+* Create `app/api/auth/[...nextauth]/route.ts` like [route.ts](auth/%5B...nextauth%5D/route.ts)
 
 * Now you can use the following URL to signin: `/api/auth/signin`
 
