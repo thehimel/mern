@@ -21,14 +21,14 @@ NEXTAUTH_SECRET="<32-BYTE RANDOM VALUE ENCODED IN BASE64 FORMAT>"
 GOOGLE_CLIENT_ID=""
 GOOGLE_CLIENT_SECRET=""
 ```
-* Create [middleware.ts](middleware.ts)
+* Create [middleware.ts](src/middleware.ts)
 
 > The URLs defined in the matcher requires authentication.
 > URLs define in the matcher must start with a `/`.
 
-* Create `app/api/auth/[...nextauth]/authOptions.ts` like [authOptions.ts](auth/%5B...nextauth%5D/authOptions.ts)
+* Create `app/api/auth/[...nextauth]/authOptions.ts` like [authOptions.ts](src/app/api/auth/%5B...nextauth%5D/authOptions.ts)
 
-* Create `app/api/auth/[...nextauth]/route.ts` like [route.ts](auth/%5B...nextauth%5D/route.ts)
+* Create `app/api/auth/[...nextauth]/route.ts` like [route.ts](src/app/api/auth/%5B...nextauth%5D/route.ts)
 
 * Now you can use the following URL to signin: `/api/auth/signin`
 

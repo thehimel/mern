@@ -12,8 +12,8 @@ project-directory/
 
 ## Configuration
 
-* Create: [docker-compose.yml](docker-compose.yml)
-* Set the environment variables in the `.env` file: [.env.example](.env.example)
+* Create: [docker-compose.yml](src/docker-compose.yml)
+* Set the environment variables in the `.env` file: [.env.example](src/.env.example)
 * Run `docker-compose up`
 * `DATABASE_URL="postgresql://USER:PASSWORD@HOST:PORT/DATABASE"`
 
