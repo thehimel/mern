@@ -98,6 +98,7 @@ export const { GET, POST } = toNextJsHandler(auth.handler);
 ![supabase.png](images/supabase.png)
 
 * Create and get the connection string as URI.
+* Apply migration in production environment: `npx prisma migrate deploy`
 
 ## References
 
