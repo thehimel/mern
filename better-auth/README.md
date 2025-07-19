@@ -93,6 +93,12 @@ export const { GET, POST } = toNextJsHandler(auth.handler);
 * Sign in with Google and check the database entry.
 * In PyCharm, you can double-click the .db file to explore it.
 
+## Supabase
+
+![supabase.png](images/supabase.png)
+
+* Create and get the connection string as URI.
+
 ## References
 
 * [Coding Jitsu - Complete Auth Setup in Next.js with Better-Auth | Email, Social Login & Reset Password](https://youtu.be/n6rP9d3RWo8)
