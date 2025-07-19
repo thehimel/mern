@@ -6,7 +6,7 @@
 
 * Install and configure `Prisma` following 
 * Install: `npm install prisma @prisma/client`
-* Init: `npx prisma init --datasource-provider sqlite`
+* Init: `prisma init --datasource-provider postgresql`
 
 ``output
 Next steps:
@@ -93,11 +93,22 @@ export const { GET, POST } = toNextJsHandler(auth.handler);
 * Sign in with Google and check the database entry.
 * In PyCharm, you can double-click the .db file to explore it.
 
-## Supabase
+## Vercel Configuration
 
-![supabase.png](images/supabase.png)
+* Add [vercel.json](vercel.json)
 
-* Create and get the connection string as URI.
+### Function Settings
+- **maxDuration: 30** - Extends API route timeout from default 10s to 30s for slower database operations
+
+### Build Environment  
+- **PRISMA_GENERATE_DATAPROXY: "true"** - Generates Prisma client optimized for serverless deployment
+  - Reduces bundle size
+  - Improves cold start performance
+  - Required for Vercel serverless functions with Prisma
+
+## Neon DB
+
+* Create and connect via connection pooling.
 * Apply migration in production environment: `npx prisma migrate deploy`
 
 ## References
