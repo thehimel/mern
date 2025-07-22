@@ -1,5 +1,27 @@
 # Better Auth
 
+## Fastrack
+
+```bash
+prisma init --datasource-provider postgresql
+npx prisma generate
+
+npx @better-auth/cli generate
+
+npx prisma migrate dev --name initial-setup
+npx prisma migrate deploy
+```
+
+> When you clone the repo, make sure you run `npx prisma generate`
+
+## Neon
+
+* Create and connect via connection pooling.
+  * **Issue**: Vercel deployment failed because `channel_binding=require` parameter in PostgreSQL connection string isn't supported by Prisma.
+    * **Fix**: Remove `&channel_binding=require` from `DATABASE_URL` - keep `sslmode=require` for security.
+    * **Working Syntax**: `postgresql://user:pass@localhost:5432/db?sslmode=require`
+* Apply migration in production environment: `npx prisma migrate deploy`
+
 ## Install and Configure Prisma
 
 > [Reference](https://www.prisma.io/docs/orm/reference/prisma-cli-reference#examples-1)
@@ -105,11 +127,6 @@ export const { GET, POST } = toNextJsHandler(auth.handler);
   - Reduces bundle size
   - Improves cold start performance
   - Required for Vercel serverless functions with Prisma
-
-## Neon DB
-
-* Create and connect via connection pooling.
-* Apply migration in production environment: `npx prisma migrate deploy`
 
 ## References
 
