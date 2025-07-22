@@ -1,0 +1,7 @@
+<svg width="1080" height="1080" viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="540" cy="540" r="500" fill="black" stroke="white" stroke-width="8"/>
+  
+  <!-- Letter A -->
+  <text x="540" y="680" font-family="Arial, sans-serif" font-size="480" font-weight="bold" text-anchor="middle" fill="white">A</text>
+</svg>
