@@ -14,6 +14,12 @@ npx prisma migrate deploy
 
 > When you clone the repo, make sure you run `npx prisma generate`
 
+## Reset Database with Prisma
+
+Command: `npx prisma migrate reset`
+
+* It deletes all tables and re-applies migrations. No further configuration is required.
+
 ## Neon
 
 * Create and connect via connection pooling.
