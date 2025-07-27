@@ -14,6 +14,10 @@ npx prisma migrate deploy
 
 > When you clone the repo, make sure you run `npx prisma generate`
 
+## Backup Database
+
+Command: `npx prisma db execute --file backup.sql --schema ./prisma/schema.prisma`
+
 ## Reset Database with Prisma
 
 Command: `npx prisma migrate reset`
