@@ -9,6 +9,7 @@
 
 * GUI For MongoDB: [MongoDB Compass](https://www.mongodb.com/products/tools/compass)
   * Install via [brew](https://formulae.brew.sh/cask/mongodb-compass)
+* [Tailwind CSS Background Patterns](https://patterncraft.fun/)
 
 ## Snippets
 
